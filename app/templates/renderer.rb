@@ -2,8 +2,8 @@ class Renderer
   
 
   def method_missing(var)
-    if @will.send(var.to_sym) != nil
-      return @will.send(var.to_sym)
+    if @document[var] != nil
+      return @document[var]
     else
       super
     end
