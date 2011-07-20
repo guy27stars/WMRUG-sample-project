@@ -1,0 +1,9 @@
+This is the edit page for <%=@user.email%>.
+
+<%= form_for @user do |f|%>
+Name: <%= f.text_field :name %><br/>
+email: <%= f.email_field :email %><br/>
+
+
+<%= f.submit %>
+<%end%>

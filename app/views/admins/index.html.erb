@@ -1,0 +1,11 @@
+Hello admin!</br>
+<%=link_to "sign out", destroy_admin_session_url, :method => :delete%><br/>
+<% @all_users.each do |user|%>
+  <%= user.email%>
+  <%= link_to "edit", edit_user_path(user), :class => "cboxElement"%> 
+  <%= link_to "view documents", user_documents_path(user), :class => "cboxElement"%>
+  <%= form_for user, :remote => true do |f|%>
+  Retire: <%= f.check_box :retired, "data-path" => user_toggle_user_retire_path(user)%>
+    <%end%>
+    <br/>
+  <%end%>

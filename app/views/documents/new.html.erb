@@ -1,0 +1,9 @@
+<%= semantic_form_for [current_user, @document] do |form| %>
+<% @document.fields.each do |attribute, value|%>
+<% if attribute != "_id" && attribute != "_type"%>
+<%= form.input attribute%>
+<% end %>
+<% end %>
+<%= form.commit_button %>
+
+<% end %>

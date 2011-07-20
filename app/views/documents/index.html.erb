@@ -1,0 +1,4 @@
+Document IDs for <%=@user.name%></br>
+<%@user.documents.each do |document|%>
+  <%= document.id%><br/>
+  <%end%>
