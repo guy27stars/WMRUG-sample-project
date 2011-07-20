@@ -2,8 +2,8 @@ class Renderer
   
 
   def method_missing(var)
-    if @document[var] != ""
-      return @document[var]
+    if @will.send(var.to_sym) != nil
+      return @will.send(var.to_sym)
     else
       super
     end
@@ -14,14 +14,6 @@ class Renderer
     @clause_number = 1
     @document = document
     @name = @document.user.name
-  end
-  
-  def samplestamp
-    @pdf.float do
-      @pdf.repeat :all do
-        @pdf.text_box "SAMPLE", :height => 2, :mode => :stroke, :size => 120, :rotate => -45,  :rotate_around => :lower_left
-      end
-    end
   end
 
   #This controls the creation of a numbered clause with a title.
